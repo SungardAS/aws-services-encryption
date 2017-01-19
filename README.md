@@ -1,6 +1,7 @@
 # Lambda Environment Variable Encryptor
 
 Lambda Function to encrypt secret environment variables of Lambda Functions.
+
 This Function is integrated with CodePipeline to encrypt secret values after target Lambda Functions are successfully deployed.
 
 Please see this for more details on how to integrate Lambda Functions in CodePipeline,
