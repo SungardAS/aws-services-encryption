@@ -11,20 +11,19 @@ http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-lambda-integrati
 
 ## How To Setup a CodePipeline
 
-- First, create a S3 Bucket where the deployment files will be uploaded with below naming convention. *(You can use a different convention, but you need to add a permission for the CodeBuild to access this S3 bucket)*.
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=ServerlessCodePipeline&amp;templateURL=https://s3.amazonaws.com/cloudformation-serverless-codepipeline.us-east-1/codepipeline.yaml"><img src="https://camo.githubusercontent.com/210bb3bfeebe0dd2b4db57ef83837273e1a51891/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f636c6f7564666f726d6174696f6e2d6578616d706c65732f636c6f7564666f726d6174696f6e2d6c61756e63682d737461636b2e706e67" alt="Launch Stack" data-canonical-src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" /></a>
 
-  >
+Input Parameter Values
 
-      codepipeline-<region>-<account_num>-<project_name>
-
-  like
-
-      codepipeline-us-east-1-9999999999-aws-services-encryption
-
-
-- Follow the steps in http://docs.aws.amazon.com/lambda/latest/dg/automating-deployment.html along with an additional step to set an environment variable under 'Advanced' setting when creating a new project in CodeBuild
-
-  > S3_BUCKET_NAME : S3 bucket name you created above
+- CloudformationLambdaExecutionRoleArn: *role_arn* (See <a href="https://s3.amazonaws.com/cloudformation-serverless-codepipeline.us-east-1/roles/role_cloudformation-lambda-execution-role">here</a> for Trust Relationships and Policy Document)
+- CodePipelineServiceRoleArn: *role_arn*  (See <a href="https://s3.amazonaws.com/cloudformation-serverless-codepipeline.us-east-1/roles/role_AWS-CodePipeline-Service.json">here</a> for Trust Relationships and Policy Document)
+- EncryptionLambdaArn:
+- GitHubPersonalAccessToken: *access_token* (See <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">here</a> to find how to genernate the access token)
+- GitHubSourceRepositoryBranch: master
+- GitHubSourceRepositoryName: aws-services-encryption
+- GitHubSourceRepositoryOwner: SungardAS
+- ParameterOverrides:
+- ProjectImage: aws/codebuild/python:2.7.12
 
 
 ## How To Test Lambda Functions
