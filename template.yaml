@@ -43,6 +43,7 @@ Resources:
   LambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: SungardAS-Encryption
       Handler: encryption.lambda_handler
       Runtime: python2.7
       CodeUri: ./src
