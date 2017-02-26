@@ -41,7 +41,7 @@ Input Parameter Values
 
 - ParameterOverrides:
 
-- ProjectImage: `aws/codebuild/nodejs:4.3.2`
+- ProjectImage: `aws/codebuild/python:2.7.12`
 
 
 ## How To Test Lambda Functions
